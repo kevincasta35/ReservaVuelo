@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ReservaVuelo.Models
 {
+
+    //Modelo vuelo
     public class Vuelo
     {
         public int VueloID { get; set; }
