@@ -12,6 +12,7 @@ namespace ReservaVuelo.Database
     public class Database
     {
         private static Database _instance;
+        //coment
         private readonly string _connectionString;
         public SqlConnection Connection { get; private set; }
 
