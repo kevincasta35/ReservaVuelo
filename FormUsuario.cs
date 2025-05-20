@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace ReservaVuelo
 {
+
+    //Form usuario normal
     public partial class FormUsuario : Form
     {
         private int pasajeroId;
