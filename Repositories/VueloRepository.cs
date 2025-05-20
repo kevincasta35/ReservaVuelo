@@ -11,6 +11,8 @@ namespace ReservaVuelo.Repositories
     using ReservaVuelo;
     public class VueloRepository
     {
+
+        //REpo de vuelos
         public List<Vuelo> ObtenerVuelos()
         {
             var lista = new List<Vuelo>();
