@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace ReservaVuelo
 {
-
+    //Implementacion formulario administrador
 
     public partial class FormAdministrador : Form
     {
