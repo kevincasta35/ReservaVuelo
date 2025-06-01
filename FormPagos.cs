@@ -7,6 +7,8 @@ using System.Windows.Forms;
 
 namespace ReservaVuelo
 {
+
+    //Implementación Formulario para pagos FormPagos
     public partial class FormPagos : Form
     {
         private string connectionString = "Server=DESKTOP-2US5BA3;Database=ReservaPasajes;Trusted_Connection=True;";
