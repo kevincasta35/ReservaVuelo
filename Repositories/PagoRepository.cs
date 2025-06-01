@@ -23,6 +23,7 @@ namespace ReservaVuelo.Repositories
 
         public List<Pago> ObtenerPagosPorReserva(int reservaId)
         {
+            //Pagos
             var lista = new List<Pago>();
             string query = "SELECT * FROM Pagos WHERE ReservaID = @id";
 
