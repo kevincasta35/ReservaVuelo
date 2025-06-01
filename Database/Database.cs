@@ -12,9 +12,9 @@ namespace ReservaVuelo
     public class Database
     {
 
-
+        //Base de datos funcional
         private static Database _instance;
-        //comentado
+        
         private readonly string _connectionString;
         public SqlConnection Connection { get; private set; }
 
