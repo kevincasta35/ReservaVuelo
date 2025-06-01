@@ -4,7 +4,9 @@ using System;
 using System.Windows.Forms;
 
 namespace ReservaVuelo
-{
+
+
+    //Crear formulario para pasajeros FormPasajeros
     public partial class FormPasajeros : Form
     {
         private PasajeroRepository pasajeroRepo = new PasajeroRepository();
