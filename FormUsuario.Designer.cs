@@ -1,4 +1,6 @@
-﻿namespace ReservaVuelo
+﻿using System;
+
+namespace ReservaVuelo
 {
     partial class FormUsuario
     {
@@ -33,6 +35,7 @@
             this.btnCargarReservas = new System.Windows.Forms.Button();
             this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnCancelarReserva = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +58,7 @@
             // 
             // btnCargarReservas
             // 
-            this.btnCargarReservas.Location = new System.Drawing.Point(122, 278);
+            this.btnCargarReservas.Location = new System.Drawing.Point(73, 251);
             this.btnCargarReservas.Name = "btnCargarReservas";
             this.btnCargarReservas.Size = new System.Drawing.Size(103, 23);
             this.btnCargarReservas.TabIndex = 2;
@@ -81,11 +84,21 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Filtro";
             // 
+            // btnCancelarReserva
+            // 
+            this.btnCancelarReserva.Location = new System.Drawing.Point(227, 251);
+            this.btnCancelarReserva.Name = "btnCancelarReserva";
+            this.btnCancelarReserva.Size = new System.Drawing.Size(128, 23);
+            this.btnCancelarReserva.TabIndex = 5;
+            this.btnCancelarReserva.Text = "Cancelar Reservas";
+            this.btnCancelarReserva.UseVisualStyleBackColor = true;
+            // 
             // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCancelarReserva);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbFiltro);
             this.Controls.Add(this.btnCargarReservas);
@@ -93,10 +106,16 @@
             this.Controls.Add(this.label1);
             this.Name = "FormUsuario";
             this.Text = "FormUsuario";
+            this.Load += new System.EventHandler(this.FormUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Aquí va la lógica para filtrar las reservas
+            // Puedes llamar al método que carga las reservas dependiendo del filtro (futuras o pasadas)
         }
 
         #endregion
@@ -106,5 +125,6 @@
         private System.Windows.Forms.Button btnCargarReservas;
         private System.Windows.Forms.ComboBox cmbFiltro;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCancelarReserva;
     }
 }

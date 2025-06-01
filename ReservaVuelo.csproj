@@ -59,17 +59,47 @@
     <Compile Include="FormAdministrador.Designer.cs">
       <DependentUpon>FormAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPagos.Designer.cs">
+      <DependentUpon>FormPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPasajeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPasajeros.Designer.cs">
+      <DependentUpon>FormPasajeros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReservarVuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReservarVuelo.Designer.cs">
+      <DependentUpon>FormReservarVuelo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormUsuario.Designer.cs">
       <DependentUpon>FormUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVuelos.Designer.cs">
+      <DependentUpon>FrmVuelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pago.cs" />
+    <Compile Include="Models\Pasajero.cs" />
     <Compile Include="Models\ReservaDetalle.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Vuelo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PagoRepository.cs" />
+    <Compile Include="Repositories\PasajeroRepository.cs" />
     <Compile Include="Repositories\ReservaRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
     <Compile Include="Repositories\VueloRepository.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -77,8 +107,20 @@
     <EmbeddedResource Include="FormAdministrador.resx">
       <DependentUpon>FormAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPagos.resx">
+      <DependentUpon>FormPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPasajeros.resx">
+      <DependentUpon>FormPasajeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReservarVuelo.resx">
+      <DependentUpon>FormReservarVuelo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVuelos.resx">
+      <DependentUpon>FrmVuelos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

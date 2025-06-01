@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtClave = new System.Windows.Forms.Label();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnProbarConexion = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -43,13 +43,14 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
-            // textBox2
+            // txtClave
             // 
-            this.textBox2.Location = new System.Drawing.Point(151, 162);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtClave.Location = new System.Drawing.Point(151, 166);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(100, 20);
+            this.txtClave.TabIndex = 1;
             // 
             // label1
             // 
@@ -59,15 +60,6 @@
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Usuario";
-            // 
-            // txtClave
-            // 
-            this.txtClave.AutoSize = true;
-            this.txtClave.Location = new System.Drawing.Point(176, 137);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(34, 13);
-            this.txtClave.TabIndex = 3;
-            this.txtClave.Text = "Clave";
             // 
             // lblMensaje
             // 
@@ -98,15 +90,25 @@
             this.btnProbarConexion.UseVisualStyleBackColor = true;
             this.btnProbarConexion.Click += new System.EventHandler(this.btnProbarConexion_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(176, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Clave";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // FormLogin
             // 
             this.ClientSize = new System.Drawing.Size(443, 319);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnProbarConexion);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblMensaje);
-            this.Controls.Add(this.txtClave);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtUsuario);
             this.Name = "FormLogin";
             this.Load += new System.EventHandler(this.FormLogin_Load);
@@ -119,12 +121,12 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label txtClave;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnProbarConexion;
+        private System.Windows.Forms.Label label2;
     }
 }
 

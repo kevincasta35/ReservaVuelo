@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReservaVuelo.Database
+namespace ReservaVuelo
 {
 
 
     public class Database
     {
+
+
         private static Database _instance;
         //comentado
         private readonly string _connectionString;
@@ -18,7 +20,7 @@ namespace ReservaVuelo.Database
 
         private Database()
         {
-            _connectionString = "Server=DESKTOP-2US5BA3\\MSSQLSERVER01;Database=ReservaPasajes;Trusted_Connection=True;";
+            _connectionString = "Server=DESKTOP-2US5BA3;Database=ReservaPasajes;Trusted_Connection=True;";
             Connection = new SqlConnection(_connectionString);
         }
 
@@ -43,5 +45,6 @@ namespace ReservaVuelo.Database
             if (Connection.State == System.Data.ConnectionState.Open)
                 Connection.Close();
         }
+
     }
 }

@@ -1,35 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ReservaVuelo.Repositories;
+using ReservaVuelo.Models;
 
-
-//ajuste
 namespace ReservaVuelo
 {
-    using ReservaVuelo;
     public partial class FormLogin : Form
     {
-    
-
+        public FormLogin()
+        {
+            InitializeComponent();
+        }
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
+            lblMensaje.Text = ""; // Limpia el mensaje al cargar
         }
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            string usuario = txtUsuario.Text.Trim();
+            string nombreUsuario = txtUsuario.Text.Trim();
             string clave = txtClave.Text.Trim();
 
-            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(clave))
+            if (string.IsNullOrEmpty(nombreUsuario) || string.IsNullOrEmpty(clave))
             {
                 lblMensaje.Text = "Ingrese usuario y clave.";
                 return;
@@ -37,34 +30,28 @@ namespace ReservaVuelo
 
             try
             {
-                Database.Instance.Open();
+                var usuarioRepo = new UsuarioRepository();
+                Usuario usuario = usuarioRepo.ObtenerPorNombreYClave(nombreUsuario, clave);
 
-                string query = "SELECT Rol FROM Usuarios WHERE NombreUsuario = @usuario AND Clave = @clave";
-                SqlCommand cmd = new SqlCommand(query, Database.Instance.Connection);
-                cmd.Parameters.AddWithValue("@usuario", usuario);
-                cmd.Parameters.AddWithValue("@clave", clave);
-
-                var rol = cmd.ExecuteScalar() as string;
-
-                if (rol != null)
+                if (usuario != null && usuario.Rol == "Administrador")
                 {
-                    MessageBox.Show($"Bienvenido {usuario} - Rol: {rol}");
-
-                    if (rol == "Administrador")
-                    {
-                        new FormAdministrador().Show();
-                    }
-                    else if (rol == "Usuario")
-                    {
-                        string queryPasajero = "SELECT PasajeroID FROM Pasajeros WHERE Nombre = @nombre";
-                        SqlCommand cmd2 = new SqlCommand(queryPasajero, Database.Instance.Connection);
-                        cmd2.Parameters.AddWithValue("@nombre", usuario);
-
-                        int pasajeroId = (int)(cmd2.ExecuteScalar() ?? 0);
-                        new FormUsuario(pasajeroId).Show();
-                    }
-
+                    new FormAdministrador().Show();
                     this.Hide();
+                }
+                else if (usuario != null && usuario.Rol == "Usuario")
+                {
+                    var pasajeroRepo = new PasajeroRepository();
+                    var pasajero = pasajeroRepo.ObtenerPorNombre(usuario.NombreUsuario);
+
+                    if (pasajero != null)
+                    {
+                        new FormUsuario(pasajero.PasajeroID).Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        lblMensaje.Text = "El usuario no tiene un pasajero asociado.";
+                    }
                 }
                 else
                 {
@@ -73,12 +60,14 @@ namespace ReservaVuelo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error al intentar iniciar sesión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                Database.Instance.Close();
-            }
+        }
+
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            lblMensaje.Text = ""; // Limpia mensaje al cambiar texto
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
@@ -86,16 +75,21 @@ namespace ReservaVuelo
             try
             {
                 Database.Instance.Open();
-                MessageBox.Show("✅ Conexión exitosa a SQL Server!");
+                MessageBox.Show("Conexión exitosa a la base de datos.", "Conexión", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Error al conectar: " + ex.Message);
+                MessageBox.Show("Error de conexión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 Database.Instance.Close();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
