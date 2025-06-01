@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace ReservaVuelo.Repositories
 {
+
+    //Repositorio de pasajeros para la logica de pasajeros
     public class PasajeroRepository
     {
         public List<Pasajero> ObtenerTodos()

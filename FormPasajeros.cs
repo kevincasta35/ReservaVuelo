@@ -3,7 +3,7 @@ using ReservaVuelo.Repositories;
 using System;
 using System.Windows.Forms;
 
-namespace ReservaVuelo
+namespace ReservaVuelo { 
 
 
     //Crear formulario para pasajeros FormPasajeros
